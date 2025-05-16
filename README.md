@@ -74,3 +74,12 @@ https://www.andrewklau.com/openwrt-and-a-4-usb-wifi-adapter/
 By default when the device boots the usb mac address is randomly generated.  This link explains how to add static mac addresses.
 https://github.com/adron-s/QCA953x-usb-device-mode
 The file you need to edit is /etc/modules.d/52-usb-gadget-eth
+
+fix
+
+'modprobe g_ether' should load it, and
+'modinfo g_ether' should confirm it loaded.
+After that you can create a interface that uses 'usb0'
+
+Later added a link in modules.d so it loads each boot.
+'echo g_ether > /etc/modules.d/56-g_ether'
